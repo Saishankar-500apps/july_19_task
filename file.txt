@@ -1,0 +1,39 @@
+#Today i have learnt different location match,redirect,rewrite,proxy-pass and add-headers 
+
+#location match 
+### exact location match 
+location = /somename {
+    return statement;
+}
+### prefix location match 
+location / somename {
+    return stataement;
+}
+### regex location match 
+location ~/ somename {
+    return sattement;
+}
+
+#Redirect simply when the location hits a url or file it will redirect to given redirect location 
+location = / anyfile or url {
+    return 301 or 302 /redirect filename or url;
+}
+#where 301 code means permantenly moved 
+#where 302 code means temporarly moved 
+#when 200 is used it will display the content or statement in the return statement 
+#400 series means error message
+#Redirect only redirects but the url or file path location will be changed means it will show the location of redirect url or file path 
+
+#Rewrite simply when the location hits a url or file it willrewrite to given rewrite location 
+location =/ anyfile or url {
+    rewrite /rewrite filename or url; 
+}  
+ or 
+rewrite /anyfile or url /rewrite filename or url;
+#Rewrite dosenot changes the file path that means the file path will be same as the requested one but it will rewrite it 
+
+#proxy_pass proxy-pass also similar to rewrite of a file 
+location =/ anyfile or url {
+    proxy_pass url or filename;
+}
+#Proxy-pass dosenot changes the file path that means the file path will be same as the requested one but it will rewrite it 
